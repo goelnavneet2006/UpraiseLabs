@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+  <display-name>upraiselabs</display-name>
+
+  <servlet>
+    <description>
+    </description>
+    <display-name>HomePage</display-name>
+    <servlet-name>HomePage</servlet-name>
+    <servlet-class>com.upraiselabs.pages.HomePage</servlet-class>
+  </servlet>
+
+  <servlet>
+    <description>
+    </description>
+    <display-name>RegisterUser</display-name>
+    <servlet-name>RegisterUser</servlet-name>
+    <servlet-class>com.upraiselabs.services.RegisterUser</servlet-class>
+  </servlet>
+
+  <servlet>
+    <description>
+    </description>
+    <display-name>LoginUser</display-name>
+    <servlet-name>LoginUser</servlet-name>
+    <servlet-class>com.upraiselabs.services.LoginUser</servlet-class>
+  </servlet>
+
+  <servlet>
+    <description>
+    </description>
+    <display-name>ActivateAccountPage</display-name>
+    <servlet-name>ActivateAccountPage</servlet-name>
+    <servlet-class>com.upraiselabs.pages.ActivateAccountPage</servlet-class>
+  </servlet>
+
+  <servlet>
+    <description>
+    </description>
+    <display-name>UserRegistrationPage</display-name>
+    <servlet-name>UserRegistrationPage</servlet-name>
+    <servlet-class>com.upraiselabs.pages.UserRegistrationPage</servlet-class>
+  </servlet>
+
+  <servlet>
+    <description>
+    </description>
+    <display-name>UserAccountPage</display-name>
+    <servlet-name>UserAccountPage</servlet-name>
+    <servlet-class>com.upraiselabs.pages.UserAccountPage</servlet-class>
+  </servlet>
+
+  <servlet>
+    <description>
+    </description>
+    <display-name>SignoutUserPage</display-name>
+    <servlet-name>SignoutUserPage</servlet-name>
+    <servlet-class>com.upraiselabs.pages.SignoutUserPage</servlet-class>
+  </servlet>
+
+
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>/frontend/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>HomePage</servlet-name>
+    <url-pattern></url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>RegisterUser</servlet-name>
+    <url-pattern>/api/register_user</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>LoginUser</servlet-name>
+    <url-pattern>/api/login_user</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>ActivateAccountPage</servlet-name>
+    <url-pattern>/activate_account</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>UserRegistrationPage</servlet-name>
+    <url-pattern>/register_user</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>UserAccountPage</servlet-name>
+    <url-pattern>/user_account</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SignoutUserPage</servlet-name>
+    <url-pattern>/signout_user</url-pattern>
+  </servlet-mapping>
+
+
+  <session-config>
+      <session-timeout>
+          30
+      </session-timeout>
+  </session-config>
+
+</web-app>

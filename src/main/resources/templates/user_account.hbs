@@ -1,0 +1,110 @@
+{{> templates/boilerplate_top}}
+
+<div class="row" ng-controller="ULUserAccountCtrl as uLUserAccountCtrl">
+
+  {{#if error}} {{error}} {{else}}
+  <ul class="nav nav-tabs">
+    <li role="presentation" ng-class="{active: uLUserAccountCtrl.myProfileTab}"
+      ng-click="uLUserAccountCtrl.activateMyProfileTab()"><a href="#">My
+        profile</a></li>
+    <li role="presentation"
+      ng-class="{active: uLUserAccountCtrl.myMutualFundsTab}"
+      ng-click="uLUserAccountCtrl.activateMyMutualFundsTab()"><a href="#">My
+        mutual funds</a></li>
+  </ul>
+
+  <div ng-show="uLUserAccountCtrl.myProfileTab">
+    {{#if userDemographic}}
+    <h3></h3>
+    <table class="table table-striped table-bordered">
+      <tbody>
+        <tr>
+          <td><strong>First name</strong></td>
+          <td>{{userDemographic.firstname}}</td>
+        </tr>
+        <tr>
+          <td><strong>Middle name</strong></td>
+          <td>{{userDemographic.middlename}}</td>
+        </tr>
+        <tr>
+          <td><strong>Last name</strong></td>
+          <td>{{userDemographic.lastname}}</td>
+        </tr>
+        <tr>
+          <td><strong>Mobile number</strong></td>
+          <td>{{userDemographic.mobile}}</td>
+        </tr>
+        <tr>
+          <td><strong>STD code</strong></td>
+          <td>{{userDemographic.landline_std}}</td>
+        </tr>
+        <tr>
+          <td><strong>Landline number</strong></td>
+          <td>{{userDemographic.landline_number}}</td>
+        </tr>
+        <tr>
+          <td><strong>Date of birth</strong></td>
+          <td>{{userDemographic.dob}}</td>
+        </tr>
+        <tr>
+          <td><strong>PAN number</strong></td>
+          <td>{{userDemographic.pan}}</td>
+        </tr>
+        <tr>
+          <td><strong>Address line 1</strong></td>
+          <td>{{userDemographic.address_line_1}}</td>
+        </tr>
+        <tr>
+          <td><strong>Address line 2</strong></td>
+          <td>{{userDemographic.address_line_2}}</td>
+        </tr>
+        <tr>
+          <td><strong>City</strong></td>
+          <td>{{userDemographic.city}}</td>
+        </tr>
+        <tr>
+          <td><strong>State</strong></td>
+          <td>{{userDemographic.state}}</td>
+        </tr>
+        <tr>
+          <td><strong>Pincode</strong></td>
+          <td>{{userDemographic.pincode}}</td>
+        </tr>
+      </tbody>
+    </table>
+    {{/if}}
+  </div>
+
+  <div ng-show="uLUserAccountCtrl.myMutualFundsTab">
+    <h3></h3>
+    {{#if mutualFundList}}
+    <table class="table table-striped table-bordered">
+      <thead>
+        <td><strong>Mutual fund name</strong></td>
+        <td><strong>Number of units</strong></td>
+        <td><strong>Value per unit</strong></td>
+        <td><strong>Total value</strong></td>
+        <td><strong>Date of purchase</strong></td>
+      </thead>
+      <tbody>
+        {{#each mutualFundList}}
+        <tr>
+          <td>{{name}}</td>
+          <td>{{units}}</td>
+          <td>{{valuePerUnit}}</td>
+          <td>{{totalValue}}</td>
+          <td>{{dateOfPurchase}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    {{else}}
+    <div class="alert alert-info" role="alert">Sorry! no mutual funds found
+      associated with your account.</div>
+    {{/if}}
+  </div>
+
+</div>
+{{/if}} {{> templates/boilerplate_bottom}}
+
+<script src="/frontend/prod/pages/user_account/user-account-controller.js"></script>

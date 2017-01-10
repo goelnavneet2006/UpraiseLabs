@@ -1,1 +1,2 @@
-# upraiselabs
+# UpraiseLabs
+Finance tracking

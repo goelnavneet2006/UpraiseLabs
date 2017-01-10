@@ -1,0 +1,105 @@
+@import "../../bower_components/bootstrap/less/bootstrap.less";
+@import "core_theme.less";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+#ulHeader {
+  border-radius: 0 !important;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+
+  .navbar-nav {
+    float: right;
+    
+    li a {
+      color: @green2;
+    }
+
+    li a:hover {
+      color: @green4;
+    }
+  }
+}
+
+#ulFooter {
+  border-radius: 0 !important;
+  margin-bottom: 0;
+  margin-top: 20px;
+}
+
+#mainContainer {
+  margin-top:60px;
+  min-height: 700px;
+}
+
+#ulRegister {
+  float: right;
+
+  #registerButton {
+    margin-top: 20px;
+  }
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+ #ulLoginContainer {
+  position: relative;
+}
+
+#ulLogin {
+  position: absolute;
+  display: block;
+  max-width: none;
+  
+  #loginButton {
+    margin-top: 20px;
+  }
+}
+
+/* Extra small devices (phones, less than 768px) */
+@media (max-width: @screen-xs-max) {
+  #ulLogin {
+    width : @screen-xs-min/2;
+    left: -250px;
+    top: -17px;
+    zoom: 0.9;
+    .arrow {
+      display: none;
+    }
+  }
+
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max)  {
+  #ulLogin {
+    width : @screen-sm-min/3;
+    top: 50px;
+    left: -90px;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+  #ulLogin {
+    width : @screen-md-min/4;
+    top: 50px;
+    left: -90px;
+  }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) {
+  #ulLogin {
+    width : @screen-lg-min/4;
+    top: 50px;
+    left: -110px;
+  }
+}

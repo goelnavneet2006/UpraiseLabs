@@ -1,0 +1,191 @@
+{{> templates/boilerplate_top}}
+
+<div class="row">
+  <h2 class="col-md-12 registraion-title">Register with UpraiseLabs</h2>
+
+  <div class="col-md-5">
+    <div>Opportunity lies everywhere. You need a right source to invest.</div>
+  </div>
+
+  <div id="ulRegister" ng-controller="ULRegisterCtrl as ulRegisterCtrl"
+    class="col-md-7">
+
+    <div class="alert alert-danger" role="alert"
+      ng-bind-html="ulRegisterCtrl.serverErrorMsg"
+      ng-show="ulRegisterCtrl.showServerError" ng-cloak></div>
+    <div class="alert alert-success" role="alert"
+      ng-bind-html="ulRegisterCtrl.serverSuccessMsg"
+      ng-show="ulRegisterCtrl.showServerSuccess" ng-cloak></div>
+
+    <form ng-cloak name="registerForm" ng-submit="ulRegisterCtrl.submitForm();"
+      ng-hide="ulRegisterCtrl.hideRegisterForm" novalidate>
+      <div class="clearfix">
+        <div class="col-md-4 form-group"
+          ng-class="{'has-error': registerForm.registerFirstName.$invalid && registerForm.registerFirstName.$touched}">
+          <label for="registerFirstName">First name</label> <input
+            name="registerFirstName"
+            ng-model="ulRegisterCtrl.user.registerFirstName" type="text"
+            class="form-control" id="registerFirstName" placeholder="First name"
+            required="true""> <span class="help-block"
+            ng-show="registerForm.registerFirstName.$invalid && registerForm.registerFirstName.$touched">Enter
+            a valid first name</span>
+        </div>
+        <div class="col-md-4 form-group">
+          <label for="registerMiddleName">Middle name</label> <input
+            name="registerMiddleName"
+            ng-model="ulRegisterCtrl.user.registerMiddleName" type="text"
+            class="form-control" id="registerMiddleName"
+            placeholder="Middle name">
+        </div>
+        <div class="col-md-4 form-group">
+          <label for="registerLastName">Last name</label> <input
+            name="registerLastName"
+            ng-model="ulRegisterCtrl.user.registerLastName" type="text"
+            class="form-control" id="registerLastName" placeholder="Last name">
+        </div>
+      </div>
+      <div class="clearfix">
+        <div class="col-md-4 form-group"
+          ng-class="{'has-error':  registerForm.registerMobile.$invalid && registerForm.registerMobile.$touched}">
+          <label for="registerMobile">Mobile number</label> <input
+            minlength="10" maxlength="10" name="registerMobile"
+            ng-model="ulRegisterCtrl.user.registerMobile" type="text"
+            class="form-control" id="registerMobile" placeholder="Mobile number"
+            required="true"> <span class="help-block"
+            ng-show="registerForm.registerMobile.$invalid && registerForm.registerMobile.$touched">Enter
+            a valid mobile number</span>
+        </div>
+        <div class="col-md-4 form-group">
+          <label for="registerLandlineSTD">STD code</label> <input
+            name="registerLandlineSTD"
+            ng-model="ulRegisterCtrl.user.registerLandlineSTD" type="text"
+            class="form-control" id="registerLandlineSTD" placeholder="STD code">
+        </div>
+        <div class="col-md-4 form-group">
+          <label for="registerLandlineNumber">Landline number</label> <input
+            name="registerLandlineNumber"
+            ng-model="ulRegisterCtrl.user.registerLandlineNumber" type="text"
+            class="form-control" id="registerLandlineNumber"
+            placeholder="Landline number">
+        </div>
+      </div>
+      <div class="clearfix">
+        <div class="col-md-6 form-group" ng-controller="Datepicker"
+          ng-class="{'has-error':  registerForm.registerDOB.$error.required && registerForm.registerDOB.$touched}">
+          <label for="registerDOB">Date of birth (DD/MM/YYYY)</label>
+          <p class="input-group">
+            <input placeholder="Date of birth (DD/MM/YYYY)" name="registerDOB"
+              id="registerDOB" type="text" class="form-control"
+              show-button-bar="false" datepicker-popup="dd/MM/yyyy"
+              ng-model="ulRegisterCtrl.user.registerDOB" is-open="status.opened"
+              min-date="minDate" max-date="maxDate"
+              datepicker-options="dateOptions"
+              date-disabled="disabled(date, mode)" required="true"
+              close-text="Close" /> <span class="input-group-btn">
+              <button type="button" class="btn btn-default"
+                ng-click="open($event)">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </button>
+            </span>
+          </p>
+          <span class="help-block"
+            ng-show="registerForm.registerDOB.$error.required && registerForm.registerDOB.$touched">Enter
+            a valid date of birth</span>
+        </div>
+        <div class="col-md-6 form-group"
+          ng-class="{'has-error':  registerForm.registerPAN.$invalid && registerForm.registerPAN.$touched}">
+          <label for="registerPAN">PAN number</label> <input minlength="10"
+            maxlength="10" name="registerPAN"
+            ng-model="ulRegisterCtrl.user.registerPAN" type="text"
+            class="form-control" id="registerPAN" placeholder="PAN number"
+            required="true"> <span class="help-block"
+            ng-show="registerForm.registerPAN.$invalid && registerForm.registerPAN.$touched">Enter
+            a valid PAN number</span>
+        </div>
+      </div>
+      <div class="clearfix">
+        <div class="col-md-6 form-group"
+          ng-class="{'has-error':  registerForm.registerAddLine1.$invalid && registerForm.registerAddLine1.$touched}">
+          <label for="registerAddLine1">Address line 1</label> <input
+            name="registerAddLine1"
+            ng-model="ulRegisterCtrl.user.registerAddLine1" type="text"
+            class="form-control" id="registerAddLine1"
+            placeholder="Address line 1" required="true"> <span
+            class="help-block"
+            ng-show="registerForm.registerAddLine1.$invalid && registerForm.registerAddLine1.$touched">Enter
+            a valid address line 1</span>
+        </div>
+        <div class="col-md-6 form-group">
+          <label for="registerAddLine2">Address line 2</label> <input
+            name="registerAddLine2"
+            ng-model="ulRegisterCtrl.user.registerAddLine2" type="text"
+            class="form-control" id="registerAddLine2"
+            placeholder="Address line 2">
+        </div>
+      </div>
+      <div class="clearfix">
+        <div class="col-md-4 form-group"
+          ng-class="{'has-error':  registerForm.registerCity.$invalid && registerForm.registerCity.$touched}">
+          <label for="registerCity">City</label> <input name="registerCity"
+            ng-model="ulRegisterCtrl.user.registerCity" type="text"
+            class="form-control" id="registerCity" placeholder="City"
+            required="true"> <span class="help-block"
+            ng-show="registerForm.registerCity.$invalid && registerForm.registerCity.$touched">Enter
+            a valid city</span>
+        </div>
+        <div class="col-md-4 form-group"
+          ng-class="{'has-error':  registerForm.registerState.$invalid && registerForm.registerState.$touched}">
+          <label for="registerState">State</label> <input name="registerState"
+            ng-model="ulRegisterCtrl.user.registerState" type="text"
+            class="form-control" id="registerState" placeholder="State"
+            required="true"> <span class="help-block"
+            ng-show="registerForm.registerState.$invalid && registerForm.registerState.$touched">Enter
+            a valid state</span>
+        </div>
+        <div class="col-md-4 form-group"
+          ng-class="{'has-error':  registerForm.registerPincode.$invalid && registerForm.registerPincode.$touched}">
+          <label for="registerPincode">Pincode</label> <input minlength="6"
+            maxlength="6" name="registerPincode"
+            ng-model="ulRegisterCtrl.user.registerPincode" type="text"
+            class="form-control" id="registerPincode" placeholder="Pincode"
+            required="true"> <span class="help-block"
+            ng-show="registerForm.registerPincode.$invalid && registerForm.registerPincode.$touched">Enter
+            a valid pincode</span>
+        </div>
+      </div>
+      <div class="clearfix">
+        <div class="col-md-6 form-group"
+          ng-class="{'has-error':  registerForm.registerEmail.$invalid && registerForm.registerEmail.$touched}">
+          <label for="registerEmail">Email address</label> <input
+            name="registerEmail" ng-model="ulRegisterCtrl.user.registerEmail"
+            type="email" class="form-control" id="registerEmail"
+            placeholder="Email" required="true"> <span
+            class="help-block"
+            ng-show="registerForm.registerEmail.$invalid && registerForm.registerEmail.$touched">Enter
+            a valid email address</span>
+        </div>
+        <div class="col-md-6 form-group"
+          ng-class="{'has-error':  registerForm.registerPassword.$invalid && registerForm.registerPassword.$touched}">
+          <label for="registerPassword">Password (Min. 6 characters)</label> <input
+            ng-minlength="6" name="registerPassword"
+            ng-model="ulRegisterCtrl.user.registerPassword" type="password"
+            class="form-control" id="registerPassword"
+            placeholder="Password (Min. 6 characters)" required="true">
+          <span class="help-block"
+            ng-show="registerForm.registerPassword.$invalid && registerForm.registerPassword.$touched">Enter
+            a valid password</span>
+        </div>
+      </div>
+      <div class="col-md-12" id="registerButton">
+        <button type="submit" class="btn btn-primary" ng-cloak>
+          <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"
+            ng-show="ulRegisterCtrl.isSubmitting"></span> <span
+            ng-hide="ulRegisterCtrl.isSubmitting">Register</span> <span
+            ng-show="ulRegisterCtrl.isSubmitting">Registering...</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{{> templates/boilerplate_bottom}}

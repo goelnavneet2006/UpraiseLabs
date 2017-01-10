@@ -1,0 +1,11 @@
+{{> templates/boilerplate_top}}
+
+<div class="row">
+  {{#if error}}
+  <div class="alert alert-danger" role="alert">{{error}}</div>
+  {{/if}} {{#if success}}
+  <div class="alert alert-success" role="alert">{{success}}</div>
+  {{/if}}
+</div>
+
+{{> templates/boilerplate_bottom}}

@@ -1,0 +1,73 @@
+<header class="navbar navbar-inverse" id="ulHeader">
+  <div class="container container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed"
+        data-toggle="collapse" data-target="#bs-example-navbar-collapse-9"
+        aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
+        <span class="icon-bar"></span> <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Brand</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+      <ul class="nav navbar-nav">
+      {{#if isUserLoggedIn}}
+      <li><a href="#">Hello, {{firstName}}</a></li>
+      <li><a href="{{signoutUserUrl}}">Sign out</a></li>
+      {{else}}
+        <li id="ulLoginContainer" ng-cloak
+          ng-controller="ULLoginCtrl as ulLoginCtrl"><a href="#"
+          ng-click="ulLoginCtrl.toggleLoginForm();">Sign in</a>
+
+          <div class="popover bottom" ng-show="ulLoginCtrl.showLoginForm"
+            id="ulLogin">
+            <div class="arrow"></div>
+            <div class="popover-content">
+              <div class="alert alert-danger" role="alert"
+                ng-bind-html="ulLoginCtrl.serverErrorMsg"
+                ng-show="ulLoginCtrl.showServerError" ng-cloak></div>
+
+              <form name="ulLoginCtrl.loginForm"
+                ng-submit="ulLoginCtrl.submitForm();" novalidate>
+                <div class="form-group"
+                  ng-class="{'has-error': ulLoginCtrl.loginForm.loginEmail.$invalid && ulLoginCtrl.loginForm.loginEmail.$touched}">
+                  <label for="loginEmail">Email address</label> <input
+                    name="loginEmail" ng-model="ulLoginCtrl.user.loginEmail"
+                    type="email" class="form-control" id="loginEmail"
+                    placeholder="Email" required="true"> <span
+                    class="help-block"
+                    ng-show="ulLoginCtrl.loginForm.loginEmail.$invalid && ulLoginCtrl.loginForm.loginEmail.$touched">Enter
+                    a valid email address</span>
+                </div>
+                <div class="form-group"
+                  ng-class="{'has-error': ulLoginCtrl.loginForm.loginPassword.$invalid && ulLoginCtrl.loginForm.loginPassword.$touched}">
+                  <label for="loginPassword">Password</label> <input
+                    name="loginPassword"
+                    ng-model="ulLoginCtrl.user.loginPassword" type="password"
+                    class="form-control" id="loginPassword"
+                    placeholder="Password" required="true"> <span
+                    class="help-block"
+                    ng-show="ulLoginCtrl.loginForm.loginPassword.$invalid && ulLoginCtrl.loginForm.loginPassword.$touched">Enter
+                    a valid password</span>
+                </div>
+                <button type="submit" class="btn btn-primary" ng-cloak
+                  id="loginButton">
+                  <span
+                    class="glyphicon glyphicon-refresh glyphicon-refresh-animate"
+                    ng-show="ulLoginCtrl.isSubmitting"></span> <span
+                    ng-hide="ulLoginCtrl.isSubmitting">Sign in</span> <span
+                    ng-show="ulLoginCtrl.isSubmitting">Signing in...</span>
+                </button>
+              </form>
+            </div>
+          </div></li>
+        <li><a href="{{registerUserUrl}}">Register</a></li>
+        {{/if}}
+        <li><a href="#">About us</a></li>
+        <li><a href="#">Help</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
